@@ -7,6 +7,7 @@ module.exports = async (oldState, newState) => {
       });
     } catch (err) {
       console.error("Couldn't join");
+      console.error(err);
     }
   };
 
