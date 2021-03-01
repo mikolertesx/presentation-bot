@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "15.x",
+    "npm": "7.x"
+  },
   "scripts": {
-    "start": "nodenv -f node index.js",
+    "start": "node index.js",
+    "dev": "nodenv -f node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

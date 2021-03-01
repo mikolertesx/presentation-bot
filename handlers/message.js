@@ -1,4 +1,5 @@
 module.exports = (msg) => {
+  const messages = {};
   if (msg.author.bot) return;
   if (msg.content.startsWith("quien soy")) {
     if (messages[msg.author.id]) {
