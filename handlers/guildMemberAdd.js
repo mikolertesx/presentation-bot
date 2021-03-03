@@ -1,8 +1,8 @@
 const Sentiment = require("sentiment");
 
-module.exports = (member) => {
-  console.log("It ocurred.");
+// TODO Refactor guildMemberAdd
 
+module.exports = (member) => {
   const channel = member.guild.channels.cache.find(
     (ch) => ch.name === "member-log"
   );
