@@ -21,7 +21,7 @@ module.exports = (member) => {
 
     if (fixedUsername.includes("big dummy")) {
       return channel.send(
-        `Me recuerdas a alguien que me odia... Por alguna razón`
+        `${member}... Tu me recuerdas a alguien que me odia... Por alguna razón`
       );
     }
 
