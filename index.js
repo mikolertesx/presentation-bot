@@ -28,7 +28,12 @@ client.on("guildMemberUpdate", async (oldUser, newUser) => {
 			await newUser.setNickname(preferredNickname + " >:(");
 
 			setTimeout(async () => {
-				await newUser.setNickname(preferredNickname);
+				if (
+					newUser.nickname !== preferredNickname ||
+					newUser.nickname !== preferredNickname + " >:("
+				) {
+					await newUser.setNickname(preferredNickname);
+				}
 			}, 3000);
 		}
 	}
