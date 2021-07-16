@@ -20,7 +20,7 @@ client.on("guildMemberRemove", guildMemberRemove);
 
 // Don't let anyone change her name.
 client.on("guildMemberUpdate", async (oldUser, newUser) => {
-	if (oldUser.user.id === client.user.id && canChangeName) {
+	if (oldUser.user.id === client.user.id) {
 		if (
 			newUser.nickname !== preferredNickname ||
 			newUser.nickname !== preferredNickname + " >:("
