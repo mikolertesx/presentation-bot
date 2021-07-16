@@ -19,16 +19,18 @@ client.on("guildMemberAdd", guildMemberAdd);
 client.on("guildMemberRemove", guildMemberRemove);
 
 // Don't let anyone change her name.
-let canChangeName = true;
 client.on("guildMemberUpdate", (oldUser, newUser) => {
 	if (oldUser.user.id === client.user.id && canChangeName) {
-		canChangeName = false;
-		await newUser.setNickname(preferredNickname + ' >:(');
-		
-		setTimeout(async () => {
-			await newUser.setNickname(preferredNickname);
-			canChangeName = true;
-		}, 3000);
+		if (
+			newUser.nickname !== preferredNickname ||
+			newUser.nickname !== preferredNickname + " >:("
+		) {
+			await newUser.setNickname(preferredNickname + " >:(");
+
+			setTimeout(async () => {
+				await newUser.setNickname(preferredNickname);
+			}, 3000);
+		}
 	}
 });
 
