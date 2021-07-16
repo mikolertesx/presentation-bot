@@ -22,14 +22,14 @@ client.on("guildMemberRemove", guildMemberRemove);
 client.on("guildMemberUpdate", async (oldUser, newUser) => {
 	if (oldUser.user.id === client.user.id) {
 		if (
-			newUser.nickname !== preferredNickname ||
+			newUser.nickname !== preferredNickname &&
 			newUser.nickname !== preferredNickname + " >:("
 		) {
 			await newUser.setNickname(preferredNickname + " >:(");
 
 			setTimeout(async () => {
 				if (
-					newUser.nickname !== preferredNickname ||
+					newUser.nickname !== preferredNickname &&
 					newUser.nickname !== preferredNickname + " >:("
 				) {
 					await newUser.setNickname(preferredNickname);
