@@ -7,11 +7,26 @@ const guildMemberAdd = require("./handlers/guildMemberAdd");
 const guildMemberRemove = require("./handlers/guildMemberRemove");
 const client = new Discord.Client();
 
+const preferredNickname = "Hi, it's me!";
+
 client.on("ready", () => {
-  console.log(`Logged in as ${client.user.tag}`);
+	console.log(`Logged in as ${client.user.tag}`);
 });
+
 client.on("message", message);
 client.on("voiceStateUpdate", voiceStateUpdate);
 client.on("guildMemberAdd", guildMemberAdd);
 client.on("guildMemberRemove", guildMemberRemove);
+
+// Don't let anyone change her name.
+client.on("guildMemberUpdate", (oldUser, newUser) => {
+	if (oldUser.user.id === client.user.id) {
+		newUser.setNickname(preferredNickname + ' >:(');
+
+		setTimeout(() => {
+			newUser.setNickname(preferredNickname);
+		}, 3000);
+	}
+});
+
 client.login(process.env.token);
